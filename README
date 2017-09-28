@@ -1,12 +1,8 @@
 Initial implementation of SURF using OpenCL
 This code was the reference code for the project:
 Project Abstract:
-Object detection and feature matching is a crucial and versatile application in the image processing and recognition
-domain. The Speed up Robust features (SURF) kernel is fast and popular feature detector and extractor used for object
-detection. In the High Performance Computing domain, Intel Xeon Phi has been released in 2012 as a new competitor to
-GPUs. It has given performance close to GPUs or even better in many benchmarks and compute intensive applications. It
-has additional advantage of offering multiple programming models for the developers to program like OpenCL, OpenMP
-(Offload &amp; Native), MPI and Cilk threads, whichever suits the developer the most. The aim of this project is to evaluate
-the programming models on Intel Xeon Phi for SURF algorithm and implement a feature matching application on Intel
-Xeon Phi. The programming models we analyze are OpenCL (Offload), OpenMP (Offload) and OpenMP (native). We
+Object detection and feature matching is a crucial and versatile application in the image processing and recognition domain. The Speed up Robust features (SURF) kernel is fast and popular feature detector and extractor used for object
+detection. In the High Performance Computing domain, Intel Xeon Phi has been released in 2012 as a new competitor to GPUs. It has given performance close to GPUs or even better in many benchmarks and compute intensive applications. It
+has additional advantage of offering multiple programming models for the developers to program like OpenCL, OpenMP (Offload &amp; Native), MPI and Cilk threads, whichever suits the developer the most. The aim of this project is to evaluate
+the programming models on Intel Xeon Phi for SURF algorithm and implement a feature matching application on Intel Xeon Phi. The programming models we analyze are OpenCL (Offload), OpenMP (Offload) and OpenMP (native). We
 would be comparing the constraints, flexibility and performance of these programming models for SURF algorithm.
