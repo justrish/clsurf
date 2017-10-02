@@ -6,12 +6,37 @@
 </DIV>
 <DIV id="id_2_1">
 <P class="p9 ft6"><H2> Description </H2></P>
-<P class="p10 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initial implementation of SURF using OpenCL
+<P class="p10 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initial implementation of SURF using OpenCL shared in this repository.
+This repository was original reference repository for OpenCL while Surf C++ code was provided by our lab which we parallelized using 
+OpenMP on Intel Xeon Phi
 </P>
 </DIV>
 <DIV id="id_2_2">
 <P class="p9 ft6"><H2> Abstract </H2></P>
 <P class="p12 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object detection and feature matching is a crucial and versatile application in the image processing and recognition domain. The Speed up Robust features (SURF) kernel is fast and popular feature detector and extractor used for object detection. In the High Performance Computing domain, Intel Xeon Phi has been released in 2012 as a new competitor to GPUs. It has given performance close to GPUs or even better in many benchmarks and compute intensive applications. It has additional advantage of offering multiple programming models for the developers to program like OpenCL, OpenMP (Offload &amp; Native), MPI and Cilk threads, whichever suits the developer the most. The aim of this project is to evaluate the programming models on Intel Xeon Phi for SURF algorithm and implement a feature matching application on Intel Xeon Phi. The programming models we analyze are OpenCL (Offload), OpenMP (Offload) and OpenMP (native). We would be comparing the constraints, flexibility and performance of these programming models for SURF algorithm.
+</P>
+
+<P class="p9 ft6"><H2> Introduction </H2></P>
+<P class="p12 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Object detection is a problem that finds its applications in medical diagnosis and imaging, astronomical data analysis, as well as
+forensic and criminal investigations. Feature extraction and matching is a widely studied and used technique for object detection.
+Intel Xeon Phi is a new device and the architecture which is gaining popularity in the supercomputing domain as an alternative to
+GPUs. Intel Xeon Phi Coprocessor (MIC) [1] is a device architecture which is creating a lot of buzz due to its speed and scalability
+for numerical computations as well as for recycling of the existing heritage code. Intel Xeon Phi Coprocessor is pitted against
+NVIDIA GPUs in the high performance computing domain for performance and usage.
+We have implemented Large Scale Object Detection using Speeded-Up Robust Features or SURF [2] algorithm with Feature
+Matching on Intel Xeon Phi Coprocessor (MIC) architecture. We have compared our implementation of OpenMP (Offload &
+Native) and OpenCL for Intel Xeon phi in terms of speed and constraints. Offload models have Intel Xeon E5 as host while native
+model have Intel Xeon Phi itself as host. The communication of data for offload model happens using the PCI express.
+There have been many varied and fast implementations on GPUs for the image/video classification, but exploring Intel Xeon
+Phi for this purpose was a new challenge. We explored the native and offload programming model for Intel Xeon Phi coprocessor
+for the application of object detection. We have exploited the advantages of these programming models and have also looked into
+the limitations of these programming languages and the model.
+We have extended object detection for the purpose of object classification and recognition for large amounts of data on the Intel
+Xeon Phi coprocessor. The range of programming languages and libraries offered on this platform made it interesting to explore that
+which model could extract most computing power. Moreover, it is paired with an Intel Xeon server host which is in itself a highly
+parallelized and multi-threaded device already having great popularity, thus enhancing its usability and attractiveness. The object
+detection is not only data intensive by itself, but also forms the core of many other such data intensive applications. So, it became an interesting prospect to explore a new high performance computing device architecture for object detection.
 </P>
 <P class="p9 ft6"><H2> Results </H2></P>
 <P class="p12 ft6"><H2> Serial SURF profiling on Intel Xeon </H2></P>
