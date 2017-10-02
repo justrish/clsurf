@@ -15,7 +15,7 @@
 </P>
 <P class="p9 ft6"><H2> Results </H2></P>
 <P class="p12 ft6"><H2> Serial SURF profiling on Intel Xeon </H2></P>
-<P class="p12 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Results
+<P class="p12 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 After resolving all the dependencies, installing OpenCV and porting SURF C++ legacy code on Xeon E5 and Xeon Phi 5110P
 CPU hosts for offload and native programming models respectively. From the results shown in Table 2 and pie chart 9 we saw that
 major portion of computation time for a serial code on respective hosts was taken by kernels Get Descriptor, Fast Hessian and
@@ -92,6 +92,29 @@ The Fig 10(b) based on number of Interest points just shows that higher the numb
 execution time numbers, but after parallelization this dependency goes away as both the kernels depending upon the interest points
 are relatively less dominant now.
 </P>
-
+<P class="p9 ft6"><H2> Conclusion </H2></P>
+<P class="p12 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Intel Xeon Phi is an interesting and exciting platform for high Performance Computing domain. It suffers from memory
+bandwidth issues due to its Ring interconnect which increases further as multithreading increases. It is to be noted that it does not
+matter how much multithreaded or vectorization optimizations are done, until memory access are made aligned and coalesced one
+won’t be to extract much performance gains from Intel Xeon Phi. It is also to be noted that for an application like feature matching 
+for large datasets it would be better to parallelize the matching kernels as the matching kernels is compute bound kernel. Moreover,
+it is also to be noted that the internal loops which need to be vectorized for an application should have parallelization to exploit 512-
+bit SIMD lanes. To exploit these gains, the internal loops should not have any sort of loop interdependence. SURF kernel is not only
+bandwidth bound with gather accesses, but also small internal loops or loops with interdependence. This suggests that SURF kernel
+is not a desired kernel to be optimized for Intel Xeon Phi. But still if one wants to optimize further the SURF kernel one further
+requires the focus to be on Fast Hessian kernel followed by Integral Image.
+The Offload programming model of OpenCL and OpenMP have a high communication overhead compared to Native. It also
+should be taken into account that penalty of a serialized code on Intel Xeon Phi 5110p is much more than on Intel Xeon E5. This is
+due to the fact that a single core of Intel Xeon Phi is not as powerful as a single core of Intel Xeon E5. The Native model
+implementation suffers from this penalty. OpenCL code development is tougher, and more intensive than OpenMP, but more
+inclined to extract parallelization. OpenCL code though is portable on other non-Intel platforms, but performance portable cannot be
+guaranteed. OpenMP compiler on Intel Xeon Phi is much more intelligent and suggests many bottlenecks and optimizations in
+optreport. OpenMP (Native and Offload) are more preferred programming models for Intel Xeon Phi development. The choice
+between Native Model is preferred for application with high coalesced data exchange among kernels. The Offload should be
+preferred for applications having portions of serialized code and unaligned memory access. It could be concluded that Intel Xeon
+Phi is an attractive HPC platform, but the effort for parallelization due to high width SIMD lanes and limited memory bandwidth is
+higher.
+</P>
 </BODY>
 </HTML>
