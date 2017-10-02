@@ -25,6 +25,6 @@ single core on Intel Xeon Phi and irregular memory access from the global memory
 Intel Xeon Phi than Intel Xeon E5.From the serial profiling results, it is indicated Getdescriptor () should be targeted, and
 Orientation () also scales on the basis of interest points as Getdescriptor(), so optimize both the kerne ls in tandem.
 </P>
-![fig1](https://user-images.githubusercontent.com/15110492/31065172-4c1b3166-a6f8-11e7-9ee0-126fc693ec18.PNG)
+![fig1](https://user-images.githubusercontent.com/15110492/31065172-4c1b3166-a6f8-11e7-9ee0-126fc693ec18.PNG?raw=true)
 </BODY>
 </HTML>
