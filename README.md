@@ -52,6 +52,7 @@ dominant kernel in SURF algorithm as expected in spite of multithreading in the 
 the fact that the memory access are still unaligned and un-coalesced in Fast Hessian and currently using C++ constructs and buffers.
 The integral image kernel also shows a higher percentage as the numbers in other kernel gets reduced
 ![fig2](https://user-images.githubusercontent.com/15110492/31065182-58cb2e66-a6f8-11e7-8ab1-1db2535e4307.PNG)
+
 Though we expected substantial speedup but figure of 2.2x compared to Serial Xeon E5 and 4x in comparison to Xeon Phi
 Serial code execution are less than expected for Native OpenMP model. Our doubt was resolved again by the results of profiling
 analysis done for optimized SURF Native kernel. The Pie charts in Fig 11(c) of OpenMP Native indicate the Fast Hessian kernel is
@@ -60,7 +61,9 @@ memory accesses as was with OpenMP Offload model also, but just a higher percent
 kernel is also mostly single threaded except buildResponselayermap(). This makes Fast Hessian our next kernel to be targeted in
 future to extract desired level of performance from this SURF algorithm in native model.
 ![fig3](https://user-images.githubusercontent.com/15110492/31065185-5a12368e-a6f8-11e7-9023-58a6244e3e29.PNG)
+
 ![fig5](https://user-images.githubusercontent.com/15110492/31065188-5ccf6860-a6f8-11e7-85a1-5a72e5999239.PNG)
+
 OpenCL (Offload Model): Multithreading and vectorization alignment numbers can’t be separated for OpenCL implementations hence both optimizations were targeted simultaneously on OpenCL model. So actually red and grey tabs shown in 
 Fig 9 under OpenCL Offload, combined delivers the performance. It is to be noted that multithreading and vectorization gains were
 completely masked out until we specified level 2 prefetch specifically for the OpenCL kernels while compilation. The OpenCL
