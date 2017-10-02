@@ -23,7 +23,7 @@ Orientation. An important observation is that the total time taken by Xeon Phi c
 twice as much as time taken by Xeon E5 host. This indicates two things that a single core of Intel Xeon E5 is more powerful than a
 single core on Intel Xeon Phi and irregular memory access from the global memory, as in Fast Hessian kernel, are more costly on
 Intel Xeon Phi than Intel Xeon E5.From the serial profiling results, it is indicated Getdescriptor () should be targeted, and
-Orientation () also scales on the basis of interest points as Getdescriptor(), so optimize both the kernels in tandem.
+Orientation () also scales on the basis of interest points as Getdescriptor(), so optimize both the kerne ls in tandem.
 </P>
 ![fig1] (https://user-images.githubusercontent.com/15110492/31065172-4c1b3166-a6f8-11e7-9ee0-126fc693ec18.PNG)
 </BODY>
