@@ -8,7 +8,7 @@
 <P class="p9 ft6"><H2> Description </H2></P>
 <P class="p10 ft6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initial implementation of SURF using OpenCL shared in this repository.
 This repository was original reference repository for OpenCL while Surf C++ code was provided by our lab which we parallelized using 
-OpenMP on Intel Xeon Phi. I gained the Colfax certification for Intel Xeon Phi programming which actually helped a lot in development of this project
+OpenMP on Intel Xeon Phi. I gained the Colfax certification for Intel Xeon Phi programming which actually helped a lot in development of this project. The certification and detailed report is made part of this project for a look.
 </P>
 </DIV>
 <DIV id="id_2_2">
