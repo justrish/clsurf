@@ -24,7 +24,9 @@ twice as much as time taken by Xeon E5 host. This indicates two things that a si
 single core on Intel Xeon Phi and irregular memory access from the global memory, as in Fast Hessian kernel, are more costly on
 Intel Xeon Phi than Intel Xeon E5.From the serial profiling results, it is indicated Getdescriptor () should be targeted, and
 Orientation () also scales on the basis of interest points as Getdescriptor(), so optimize both the kerne ls in tandem.
-![fig1](https://user-images.githubusercontent.com/15110492/31065172-4c1b3166-a6f8-11e7-9ee0-126fc693ec18.PNG?raw=true)
+
+![fig1](https://user-images.githubusercontent.com/15110492/31065172-4c1b3166-a6f8-11e7-9ee0-126fc693ec18.PNG)
+
 In order to take advantage of Xeon Phi coprocessors we offloaded code and respective data on to the Xeon Phi cores.
 OpenMP(Offload & Native): (Fig 9) Multithreading in getDescriptors() and getOrientations() is offloaded to Intel Xeon Phi on the
 60 cores we observed an unexpected dip in performance for the algorithm for Offload in OpenMP. Multithreading in
@@ -51,6 +53,7 @@ attributed to the transfer of integral image and memory chunk of the interest po
 dominant kernel in SURF algorithm as expected in spite of multithreading in the buildResponsemap(). This could be attributed to 
 the fact that the memory access are still unaligned and un-coalesced in Fast Hessian and currently using C++ constructs and buffers.
 The integral image kernel also shows a higher percentage as the numbers in other kernel gets reduced
+
 ![fig2](https://user-images.githubusercontent.com/15110492/31065182-58cb2e66-a6f8-11e7-8ab1-1db2535e4307.PNG)
 
 Though we expected substantial speedup but figure of 2.2x compared to Serial Xeon E5 and 4x in comparison to Xeon Phi
